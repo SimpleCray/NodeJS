@@ -1,11 +1,22 @@
 const express = require('express')
 const app = express()
 const port = 4000
-var users = [
-  {id:1, name: 'Phong'},
-  {id:2, name: 'Hai'},
-  {id:3, name: 'Hoang'}
-];
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+ 
+const adapter = new FileSync('db.json')
+const db = low(adapter)
+// Set some defaults
+db.defaults({ users: [] })
+  .write()
+
+
+// var users = [
+//   {id:1, name: 'Phong'},
+//   {id:2, name: 'Hai'},
+//   {id:3, name: 'Hoang'},
+//   {id:4, name: 'Heng'},
+// ];
 app.set('view engine', 'pug')
 app.set('views', './views')
 
@@ -25,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.render('users/users',{
-        users: users
+        users: db.get('users').value()
     })
 })
 
@@ -34,17 +45,17 @@ app.get('/users/create', (req, res) => {
 })
 
 app.post('/users/create', (req, res) => {
-  users.push(req.body)
+  db.get('users').push(req.body).write()
   res.redirect("/users")
 })
 
 app.get('/users/search', (req,res) => {
   var q = req.query.q;
-  var matchedUsers = users.filter(function(user){
+  var matchedUsers = db.get('users').filter(function(user){
     return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
   })
   res.render('users/users',{
-    users: matchedUsers
+    users: matchedUsers.value()
   })
 })
 app.listen(port, () => {
