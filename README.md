@@ -8,6 +8,7 @@ npm install --save-dev nodemon
 (include this line in package.json right before "scripts"
 "start": "nodemon index.js")
 npm install lowdb
+npm install shortid --save
 
 # 2. Start
 node index.js
