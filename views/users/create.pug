@@ -1,10 +1,5 @@
 extends ../layouts/layouts
 block content
-    //- h1 Create user
-    //- form(action="/users/create", method="POST")
-    //-     label Name
-    //-     input(name="name", type="text")
-    //-     button Create
     br
     h1.alert.alert-success(style="text-align: center") Register
     if errors
@@ -14,11 +9,14 @@ block content
     form(action="/users/create", method="POST")
         .form-group
             label Email
-            input.form-control(name="email", type='email' aria-describedby='emailHelp' placeholder='Enter email' value =values ? values.email: '')
+            input.form-control(name="email", type='email' placeholder='Enter email' value =values ? values.email: '')
             small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
         .form-group
             label Password
-            input.form-control(name="password", type='password' aria-describedby='emailHelp' placeholder='Enter password' value =values ? values.password: '')
+            input.form-control(name="password", type='password' placeholder='Enter password')
+        .form-group
+            label Confirm Password
+            input.form-control(name="confirmPassword", type='password' placeholder='Re-Enter password')
         .form-group
             label Phone
             input.form-control(name="phone", type='number' placeholder='Enter Phone Number' value =values ? values.phone: '')

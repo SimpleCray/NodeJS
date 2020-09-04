@@ -9,6 +9,6 @@ npm install --save-dev nodemon
 "start": "nodemon index.js")
 npm install lowdb
 npm install shortid --save
-
+npm install cookie-parser
 # 2. Start
 node index.js

@@ -1,8 +1,9 @@
 const db = require('../db')
+//Auto generate ID
 const shortid = require('shortid')
-
 // User index
 module.exports.index = (req, res) => {
+    console.log(req.cookies.user)
     res.render('users/index',{
         users: db.get('users').value()
     })
@@ -21,19 +22,15 @@ module.exports.create = (req, res) => {
 }
 // PostCreate new User
 module.exports.postCreate = (req, res) => {
-    req.body.id = shortid.generate()
-    var errors = []
-    if(!req.body.email) errors.push('Please enter email !')
-    if(!req.body.password) errors.push('Please enter password !')
-    if(!req.body.phone) errors.push('Please enter phone !')
-    if (errors.length){
-        res.render("users/create",{
-           errors: errors,
-           values: req.body
-        })
-        return;
+    var id = shortid.generate()
+    data = {
+        id: id,
+        email: req.body.email,
+        password: req.body.password,
+        phone: req.body.phone
     }
-    db.get('users').push(req.body).write()
+    res.cookie('user', data)
+    db.get('users').push(data).write()
     res.redirect("/users")
 }
 // Search User
