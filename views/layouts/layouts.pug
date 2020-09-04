@@ -1,0 +1,40 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='icon', href='/images/NodeJS-tablogo.png')
+
+    title NodeJS Demo Web
+
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js")
+
+  body
+    .container
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.rounded
+        a.navbar-brand(href='/') 
+            img(src="/images/NodeJS-tablogo.png", width='30px')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample09', aria-controls='navbarsExample09', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarsExample09.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              a.nav-link(href='/users')
+                | User List
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='/users/create') Create User
+            li.nav-item
+              a.nav-link.disabled(href='#') Disabled
+            li.nav-item.dropdown
+              a#dropdown09.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+              .dropdown-menu(aria-labelledby='dropdown09')
+                a.dropdown-item(href='#') Action
+                a.dropdown-item(href='#') Another action
+                a.dropdown-item(href='#') Something else here
+          form.form-inline.my-2.my-md-0
+            input.form-control(type='text', placeholder='Search', aria-label='Search')
+    .container
+        block content
+    block footer

@@ -1,4 +1,13 @@
-h1 Hello #{name}
-a(href="/users") User List 
-br
-a(href="/users/create") Create User
+extends ./layouts/layouts
+block content
+    main(role='main')
+        .jumbotron
+          .col-sm-8.mx-auto
+            h1 Hello #{name}
+            img(src="/images/NodeJS.png", width="300px")
+            p
+              a(href="/users") User List 
+            p
+              a(href="/users/create") Create User
+            p
+              a.btn.btn-primary(href='../../components/navbar/', role='button') View navbar docs »

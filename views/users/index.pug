@@ -6,7 +6,11 @@ block content
             tr
                 th Email
                 th Phone
+                th Action
         tbody
+        each user in users
             tr
                 td=user.email
                 td=user.phone
+                td 
+                    a(href='/users/profile/' + user.id) View
