@@ -10,5 +10,8 @@ npm install --save-dev nodemon
 npm install lowdb
 npm install shortid --save
 npm install cookie-parser
+npm install md5 --save
+npm install dotenv --save
+
 # 2. Start
 node index.js

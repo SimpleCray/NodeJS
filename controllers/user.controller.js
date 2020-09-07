@@ -1,9 +1,11 @@
 const db = require('../db')
 //Auto generate ID
 const shortid = require('shortid')
+//MD5
+const md5 = require('md5')
+
 // User index
 module.exports.index = (req, res) => {
-    console.log(req.cookies.user)
     res.render('users/index',{
         users: db.get('users').value()
     })
@@ -26,11 +28,35 @@ module.exports.postCreate = (req, res) => {
     data = {
         id: id,
         email: req.body.email,
-        password: req.body.password,
+        password: md5(req.body.password),
         phone: req.body.phone
     }
-    res.cookie('user', data)
     db.get('users').push(data).write()
+    res.redirect("/users")
+}
+// User login
+module.exports.login = (req, res) => {
+    res.render('users/login')
+}
+// PostLogin User
+module.exports.postLogin = (req, res) => {
+    data = {
+        email: req.body.email,
+        password: md5(req.body.password)
+    }
+        req.body
+    var errors = []
+    var user = db.get('users').find(data).value()
+    console.log(user)
+    if (!user){
+        errors.push('In correct username or password !')
+        res.render('users/login',{
+            errors: errors,
+            values: req.body
+        })
+        return;
+    }
+    res.cookie('user', user.id, {signed: true})
     res.redirect("/users")
 }
 // Search User

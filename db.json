@@ -1,40 +1,16 @@
 {
   "users": [
     {
-      "email": "ngochai@gmail.com",
-      "password": "123",
-      "phone": "123789",
-      "id": "IRXuFGh8N"
+      "id": "LyxUmcYX-",
+      "email": "hai@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "phone": "123123123"
     },
     {
-      "email": "ngochai2@gmail.com",
-      "password": "123",
-      "phone": "123789",
-      "id": "qib8ZDep5"
-    },
-    {
-      "email": "phong@gmail.com",
-      "password": "123",
-      "phone": "123123123",
-      "id": "eqlytuTOF"
-    },
-    {
-      "email": "tuan@gmail.com",
-      "password": "123",
-      "phone": "123123",
-      "id": "ARMWUT7CL"
-    },
-    {
-      "id": "UUsoLOjQ0",
-      "email": "ngochai@gmail.com",
-      "password": "123",
-      "phone": "123789"
-    },
-    {
-      "id": "QUcP1lUpp",
-      "email": "crayonsking@gmail.com",
-      "password": "123",
-      "phone": "123123"
+      "id": "Aj-liH16P",
+      "email": "haia@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "phone": "0123123123"
     }
   ]
 }

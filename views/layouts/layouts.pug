@@ -19,22 +19,27 @@ html(lang='en')
           span.navbar-toggler-icon
         #navbarsExample09.collapse.navbar-collapse
           ul.navbar-nav.mr-auto
-            li.nav-item.active
+            li#userList.nav-item
               a.nav-link(href='/users')
                 | User List
                 span.sr-only (current)
-            li.nav-item
+            li#createUser.nav-item
               a.nav-link(href='/users/create') Create User
-            li.nav-item
-              a.nav-link.disabled(href='#') Disabled
-            li.nav-item.dropdown
-              a#dropdown09.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
-              .dropdown-menu(aria-labelledby='dropdown09')
-                a.dropdown-item(href='#') Action
-                a.dropdown-item(href='#') Another action
-                a.dropdown-item(href='#') Something else here
+          //- li.nav-item
+            //-   a.nav-link.disabled(href='#') Disabled
+            //- li.nav-item.dropdown
+            //-   a#dropdown09.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+            //-   .dropdown-menu(aria-labelledby='dropdown09')
+            //-     a.dropdown-item(href='#') Action
+            //-     a.dropdown-item(href='#') Another action
+            //-     a.dropdown-item(href='#') Something else here
+          if !loggedUser
+              a.nav-link(href='//users/login') Login
+          else
+              a.nav-link(href='/users/profile/'+ loggedUser.id)= loggedUser.email
           form.form-inline.my-2.my-md-0
             input.form-control(type='text', placeholder='Search', aria-label='Search')
     .container
-        block content
-    block footer
+      block content
+  block script
+    

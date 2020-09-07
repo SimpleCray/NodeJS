@@ -1,3 +1,6 @@
+//Config .env
+require ('dotenv').config()
+console.log(process.env.SESSION_SECRET)
 const express = require('express')
 //Require body-parser for send form data as request body
 const bodyParser = require('body-parser')
@@ -5,6 +8,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 //Require route for user
 const userRoute = require('./routes/user.route')
+
 const app = express()
 const port = 4000
 app.set('view engine', 'pug')
@@ -15,8 +19,8 @@ app.set('views', './views')
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
-//Use cookieParser
-app.use(cookieParser())
+//Use cookieParser with secret signed code
+app.use(cookieParser(process.env.SESSION_SECRET))
 //include static folder public
 app.use(express.static('public'))
 //Route for user

@@ -14,3 +14,8 @@ block content
                 td=user.phone
                 td 
                     a(href='/users/profile/' + user.id) View
+block script
+    script.
+        $(document).ready(function(){
+        $("#userList").addClass("active");
+        });

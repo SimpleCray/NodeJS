@@ -24,3 +24,9 @@ block content
             input.form-check-input(type='checkbox')
             label.form-check-label Check me out
         button.btn.btn-primary(type='submit') Submit
+
+block script
+    script.
+        $(document).ready(function(){
+        $("#createUser").addClass("active");
+        });

@@ -1,0 +1,25 @@
+extends ../layouts/layouts
+block content
+    br
+    h1.alert.alert-success(style="text-align: center") Login
+    if errors
+        div.col-lg-2
+        each error in errors
+            .alert.alert-danger=error
+    form(action="/users/login", method="POST")
+        .form-group
+            label Email
+            input.form-control(name="email", type='email' placeholder='Enter email' required value =values ? values.email: '')
+        .form-group
+            label Password
+            input.form-control(name="password", type='password' placeholder='Enter password' required value =values ? values.password: '')
+        //- .form-check
+        //-     input.form-check-input(type='checkbox')
+        //-     label.form-check-label Check me out
+        button.btn.btn-primary(type='submit') Login
+
+block script
+    script.
+        $(document).ready(function(){
+        $("#login").addClass("active");
+        });
