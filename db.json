@@ -194,5 +194,18 @@
       "description": "uam convallis nunc proin at turpis",
       "imageUrl": "http://loremflickr.com/200/200"
     }
+  ],
+  "session": [
+    {
+      "id": "B3IlRf7Da",
+      "cart": {
+        "362a2bc6-5c0d-4399-a5de-a181bdceb1e6": 3,
+        "1d1c908b-c960-438d-a78d-9a908bdd472a": 3,
+        "57397263-f4e5-46c6-97e8-bb443aa3ea7b": 5,
+        "0c76cd30-f5b1-43d3-9958-0b38afe5bc0d": 4,
+        "cd07a8dd-54ec-4e9b-9a5a-b15a5f071654": 6,
+        "03d20ce6-a293-49fa-b194-9c748451dcc9": 1
+      }
+    }
   ]
 }

@@ -1,6 +1,4 @@
 const db = require('../db')
-//Auto generate ID
-const shortid = require('shortid')
 //MD5
 const md5 = require('md5')
 

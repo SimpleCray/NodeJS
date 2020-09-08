@@ -27,6 +27,10 @@ html(lang='en')
               a.nav-link(href='/users/create') Create User
             li#productList.nav-item
               a.nav-link(href='/products/1') Product List
+            li#productList.nav-item
+              a.nav-link(href='#') Cart
+                if productsInCart
+                  span= ' - ' + productsInCart + ' Products'
           //- li.nav-item
             //-   a.nav-link.disabled(href='#') Disabled
             //- li.nav-item.dropdown

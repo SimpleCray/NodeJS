@@ -10,9 +10,11 @@ const cookieParser = require('cookie-parser')
 const userRoute = require('./routes/user.route')
 //Require route for product
 const productRoute = require('./routes/product.route')
+//Require route for cart
+const cartRoute = require('./routes/cart.route')
 
 const app = express()
-const port = 3500
+const port = 4000
 app.set('view engine', 'pug')
 //Set views container folder
 app.set('views', './views')
@@ -30,6 +32,8 @@ app.use(express.static('public'))
 app.use('/users', userRoute)
 //Route for product
 app.use('/products', productRoute)
+//Route for cart
+app.use('/cart', cartRoute)
 
 //Homepage
 app.get('/', (req, res) => {

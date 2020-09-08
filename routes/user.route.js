@@ -3,7 +3,7 @@ const router = express.Router()
 const userController = require('../controllers/user.controller')
 const userValidate = require('../validate/userValidate')
 //Authentication check
-const userAuth = require('../authentication/user.auth')
+const userAuth = require('../middlewares/auth.middleware')
 //Multer use for file upload
 const multer = require('multer');
 //Create a instance of multer to use
