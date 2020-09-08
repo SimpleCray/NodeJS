@@ -4,12 +4,18 @@ block content
     table.table
         thead.thead-dark
             tr
+                th Avatar
                 th Email
                 th Phone
                 th Action
         tbody
         each user in users
             tr
+                td 
+                    if user.avatar
+                        img(src=user.avatar, width='32')
+                    else
+                        img(src='upload/804df8c1daa0858164ee087c76122899', width='32')
                 td=user.email
                 td=user.phone
                 td 

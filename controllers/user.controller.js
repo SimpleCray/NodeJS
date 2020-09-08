@@ -25,11 +25,18 @@ module.exports.create = (req, res) => {
 // PostCreate new User
 module.exports.postCreate = (req, res) => {
     var id = shortid.generate()
+    var avatar
+    if(req.file){
+        avatar = req.file.path.split('/').slice(1).join('/')
+    }else{
+        avatar = ''
+    }
     data = {
         id: id,
         email: req.body.email,
         password: md5(req.body.password),
-        phone: req.body.phone
+        phone: req.body.phone,
+        avatar: avatar
     }
     db.get('users').push(data).write()
     res.redirect("/users")
@@ -44,7 +51,6 @@ module.exports.postLogin = (req, res) => {
         email: req.body.email,
         password: md5(req.body.password)
     }
-        req.body
     var errors = []
     var user = db.get('users').find(data).value()
     console.log(user)

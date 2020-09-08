@@ -6,7 +6,7 @@ block content
         div.col-lg-2
         each error in errors
             .alert.alert-danger=error
-    form(action="/users/create", method="POST")
+    form(action="/users/create", method="POST" enctype="multipart/form-data")
         .form-group
             label Email
             input.form-control(name="email", type='email' placeholder='Enter email' value =values ? values.email: '')
@@ -20,6 +20,9 @@ block content
         .form-group
             label Phone
             input.form-control(name="phone", type='number' placeholder='Enter Phone Number' value =values ? values.phone: '')
+        .form-group
+            label Avatar
+            input.form-control(name="avatar", type='file')
         .form-check
             input.form-check-input(type='checkbox')
             label.form-check-label Check me out

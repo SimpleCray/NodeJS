@@ -1,0 +1,37 @@
+extends ../layouts/layouts
+block content
+    br
+    .container
+        .row
+            each product in products
+                .col-md-4
+                    h2=product.name
+                    img(src=product.imageUrl)
+                    p
+                        =product.description
+                    p
+                        a.btn.btn-secondary(href='#' role='button') View details &raquo;
+    br
+    .d-flex.justify-content-center
+        ul.pagination
+            li.page-item
+                if currentIndex==1
+                    a.page-link Previous
+                else
+                    a.page-link(href='/products/'+ (currentIndex-1)) Previous
+            each index in indexCount
+                li(id=index).page-item
+                    a.page-link(href='/products/'+ index)=index
+            li.page-item
+                if currentIndex==indexCount.length
+                    a.page-link Next
+                else
+                    a.page-link(href='/products/'+ (++currentIndex)) Next
+block script
+    script.
+        $(document).ready(function(){
+            var activeClass = window.location.href.slice(-1);
+            console.log(activeClass);
+            $('#productList').addClass("active");
+            $('#' + activeClass).addClass("active");
+        });

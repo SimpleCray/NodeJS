@@ -8,9 +8,11 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 //Require route for user
 const userRoute = require('./routes/user.route')
+//Require route for product
+const productRoute = require('./routes/product.route')
 
 const app = express()
-const port = 4000
+const port = 3500
 app.set('view engine', 'pug')
 //Set views container folder
 app.set('views', './views')
@@ -23,8 +25,11 @@ app.use(bodyParser.json())
 app.use(cookieParser(process.env.SESSION_SECRET))
 //include static folder public
 app.use(express.static('public'))
+
 //Route for user
 app.use('/users', userRoute)
+//Route for product
+app.use('/products', productRoute)
 
 //Homepage
 app.get('/', (req, res) => {

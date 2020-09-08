@@ -12,6 +12,10 @@ npm install shortid --save
 npm install cookie-parser
 npm install md5 --save
 npm install dotenv --save
-
+npm install --save multer
 # 2. Start
 node index.js
+
+# 3. Other
+to debug nodeJS add this line to package.json
+// "start": "nodemon --inspect index.js",

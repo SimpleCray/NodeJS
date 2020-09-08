@@ -4,6 +4,10 @@ const userController = require('../controllers/user.controller')
 const userValidate = require('../validate/userValidate')
 //Authentication check
 const userAuth = require('../authentication/user.auth')
+//Multer use for file upload
+const multer = require('multer');
+//Create a instance of multer to use
+var upload = multer({dest: './public/upload/'})
 
 router.get('/',  userAuth.loginAuth, userController.index)
 
@@ -11,7 +15,11 @@ router.get('/profile/:id', userAuth.loginAuth, userController.profile)
 
 router.get('/create', userAuth.loginAuth, userController.create)
 
-router.post('/create', userValidate.postCreate, userController.postCreate)
+router.post('/create', 
+    upload.single('avatar'), 
+    userValidate.postCreate, 
+    userController.postCreate
+)
 
 router.get('/login', userController.login)
 
