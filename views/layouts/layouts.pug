@@ -40,7 +40,7 @@ html(lang='en')
             //-     a.dropdown-item(href='#') Another action
             //-     a.dropdown-item(href='#') Something else here
           if !loggedUser
-              a.nav-link(href='//users/login') Login
+              a.nav-link(href='/users/login') Login
           else
               a.nav-link(href='/users/profile/'+ loggedUser.id)= loggedUser.email
           form.form-inline.my-2.my-md-0
