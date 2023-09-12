@@ -2,7 +2,6 @@ import { ExpressApp } from "./app";
 import Http from "http";
 import { sequelize } from "./models";
 import { Sequelize } from "sequelize/types";
-// import * as Promise from 'bluebird';
 
 export class Server {
   expressApp = new ExpressApp();
@@ -18,15 +17,15 @@ export class Server {
       .catch(this.serverErrorHandler);
   };
 
-  databaseConnection = (): Promise<Sequelize> => {
+  databaseConnection = (): Promise<void | Sequelize> => {
     return this.sequelizeAuthenticate().then(this.sequelizeSync);
   };
 
-  sequelizeAuthenticate = (): any => {
+  sequelizeAuthenticate = (): Promise<void> => {
     return sequelize.authenticate();
   };
 
-  sequelizeSync = (): any => {
+  sequelizeSync = (): Promise<Sequelize> => {
     return sequelize.sync({ force: false });
   };
 

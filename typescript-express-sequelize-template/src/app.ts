@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import apiRouter from "./routers";
+require('dotenv').config();
 
 export class ExpressApp {
   app = express();
