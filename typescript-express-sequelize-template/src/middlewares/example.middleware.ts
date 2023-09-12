@@ -1,4 +1,4 @@
-import { NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 
 export const exampleMiddlewareFn = (request: Request, response: Response, next: NextFunction): void => {
     // Do some checks and return error if the check fails,

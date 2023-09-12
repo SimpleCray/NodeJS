@@ -4,10 +4,10 @@ import User from './user.model'
 import relations from './relations'
 
 Object.values(relations).forEach((relationsFunction: Function) => {
-  relationsFunction()
+    relationsFunction()
 })
 
 export {
-  sequelize,
-  User,
+    sequelize,
+    User,
 }
