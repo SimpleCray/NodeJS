@@ -1,13 +1,10 @@
-import sequelize from './sequelize'
-import User from './user.model'
+import sequelize from "./sequelize";
+import User from "./user.model";
 
-import relations from './relations'
+import relations from "./relations";
 
 Object.values(relations).forEach((relationsFunction: Function) => {
-    relationsFunction()
-})
+  relationsFunction();
+});
 
-export {
-    sequelize,
-    User,
-}
+export { sequelize, User };

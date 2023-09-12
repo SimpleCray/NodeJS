@@ -1,5 +1,5 @@
-import UserRelations from './user.relation'
+import UserRelations from "./user.relation";
 
 export default {
-  UserRelations
-}
+  UserRelations,
+};

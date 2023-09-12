@@ -1,3 +1,1 @@
-export enum EExample {
-
-}
+export enum EExample {}

@@ -1,5 +1,5 @@
-import exampleConstants from './example.constant';
+import exampleConstants from "./example.constant";
 
 export default {
-    exampleConstants,
-}
+  exampleConstants,
+};

@@ -1,5 +1,3 @@
-import * as ExampleMiddleware from './example.middleware';
+import * as ExampleMiddleware from "./example.middleware";
 
-export {
-    ExampleMiddleware,
-};
+export { ExampleMiddleware };

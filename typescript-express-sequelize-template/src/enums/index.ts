@@ -1,5 +1,5 @@
-import * as ExampleENums from './example.enum';
+import * as ExampleENums from "./example.enum";
 
 export default {
-    ExampleENums,
-}
+  ExampleENums,
+};
